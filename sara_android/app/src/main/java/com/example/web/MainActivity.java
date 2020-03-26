@@ -36,42 +36,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mTextViewResult = (TextView)findViewById(R.id.textView_main_result);
+        mTextViewResult.setMovementMethod(new ScrollingMovementMethod());
+    }
+
+    public void submit(View view) {
         mEditTextName = (EditText)findViewById(R.id.editText_main_name);
         mEditTextCountry = (EditText)findViewById(R.id.editText_main_country);
-        mTextViewResult = (TextView)findViewById(R.id.textView_main_result);
 
-        mTextViewResult.setMovementMethod(new ScrollingMovementMethod());
+        //위젯의 다루기위해서는 객체처를 해줘야합니다.
+        //밑의 구문은
+        String name = mEditTextName.getText().toString();
+        String country = mEditTextCountry.getText().toString();
 
+        //이 구문이 시작되면서 php를 들어가는 구문이 시작됩니다.
+        InsertData task = new InsertData(); //객체 생성
+        task.execute("http://" + IP_ADDRESS + "/insert.php", name, country); // 실 실행
 
-        Button buttonInsert = (Button)findViewById(R.id.button_main_insert);
-        buttonInsert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String name = mEditTextName.getText().toString();
-                String country = mEditTextCountry.getText().toString();
-
-                InsertData task = new InsertData();
-                task.execute("http://" + IP_ADDRESS + "/insert.php", name,country);
-
-
-                mEditTextName.setText("");
-                mEditTextCountry.setText("");
-
-            }
-        });
-
+        //값을 넣고 이름 부분과, 나라 텍스트 부분을 Null로 만들어줘서 다시 작성할 수 있게 해줍니다.
+        mEditTextName.setText("");
+        mEditTextCountry.setText("");
     }
 
 
-
     class InsertData extends AsyncTask<String, Void, String>{
+
+        //값이 연결되는 부분을 표현하기 위해서 받은 위젯
         ProgressDialog progressDialog;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
 
+            //폼을 제출하면 진행흐름을 보여주는 위젯
             progressDialog = ProgressDialog.show(MainActivity.this,
                     "Please Wait", null, true, true);
         }
@@ -90,24 +87,20 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
 
+            String serverURL = (String)params[0];
             String name = (String)params[1];
             String country = (String)params[2];
 
-            String serverURL = (String)params[0];
             String postParameters = "name=" + name + "&country=" + country;
 
-
             try {
-
                 URL url = new URL(serverURL);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-
 
                 httpURLConnection.setReadTimeout(5000);
                 httpURLConnection.setConnectTimeout(5000);
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.connect();
-
 
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 outputStream.write(postParameters.getBytes("UTF-8"));
@@ -137,20 +130,14 @@ public class MainActivity extends AppCompatActivity {
                     sb.append(line);
                 }
 
-
                 bufferedReader.close();
-
 
                 return sb.toString();
 
-
             } catch (Exception e) {
-
                 Log.d(TAG, "InsertData: Error ", e);
-
                 return new String("Error: " + e.getMessage());
             }
-
         }
     }
 

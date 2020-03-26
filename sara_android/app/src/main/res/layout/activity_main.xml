@@ -32,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Insert"
+        android:onClick="submit"
         android:id="@+id/button_main_insert" />
 
     <TextView
