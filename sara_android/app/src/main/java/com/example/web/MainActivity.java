@@ -23,11 +23,12 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static String IP_ADDRESS = "172.30.1.22";
-    private static String TAG = "phptest";
+    private static String IP_ADDRESS = "192.168.10.10";
+    private static String TAG = "sara_php_test";
 
+    private EditText mEditTextEmail;
     private EditText mEditTextName;
-    private EditText mEditTextCountry;
+    private EditText mEditTextPassword;
     private TextView mTextViewResult;
 
 
@@ -41,21 +42,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submit(View view) {
+        //이메일, 이름, 비밀번호 들어가는 위젯(Edittext)를 객체화해서 코드에서 다룰 수 있게 해줍니다.
+        mEditTextEmail = (EditText)findViewById(R.id.editText_main_email);
         mEditTextName = (EditText)findViewById(R.id.editText_main_name);
-        mEditTextCountry = (EditText)findViewById(R.id.editText_main_country);
+        mEditTextPassword = (EditText)findViewById(R.id.editText_main_password);
 
-        //위젯의 다루기위해서는 객체처를 해줘야합니다.
-        //밑의 구문은
+        //위젯의 다루기위해서는 객체화를 해줘야합니다.
+        //그리고 그객체에서 text를 가져옵니다.
+        String email = mEditTextEmail.getText().toString();
         String name = mEditTextName.getText().toString();
-        String country = mEditTextCountry.getText().toString();
+        String password = mEditTextPassword.getText().toString();
 
         //이 구문이 시작되면서 php를 들어가는 구문이 시작됩니다.
         InsertData task = new InsertData(); //객체 생성
-        task.execute("http://" + IP_ADDRESS + "/insert.php", name, country); // 실 실행
+        task.execute("http://" + IP_ADDRESS + "/author/register", email, name, password); // 실 실행
 
         //값을 넣고 이름 부분과, 나라 텍스트 부분을 Null로 만들어줘서 다시 작성할 수 있게 해줍니다.
+        mEditTextEmail.setText("");
         mEditTextName.setText("");
-        mEditTextCountry.setText("");
+        mEditTextPassword.setText("");
     }
 
 
@@ -88,10 +93,11 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
 
             String serverURL = (String)params[0];
-            String name = (String)params[1];
-            String country = (String)params[2];
+            String email = (String)params[1];
+            String name = (String)params[2];
+            String password = (String)params[3];
 
-            String postParameters = "name=" + name + "&country=" + country;
+            String postParameters = "email=" +email + "name=" + name + "&password=" + password;
 
             try {
                 URL url = new URL(serverURL);
@@ -99,9 +105,11 @@ public class MainActivity extends AppCompatActivity {
 
                 httpURLConnection.setReadTimeout(5000);
                 httpURLConnection.setConnectTimeout(5000);
+
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.connect();
 
+                //여기서 outputStream을 사용한 이유를 파악해야합니다.
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 outputStream.write(postParameters.getBytes("UTF-8"));
                 outputStream.flush();

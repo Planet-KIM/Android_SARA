@@ -9,6 +9,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Email"
+        android:id="@+id/textview_main_email"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_main_email"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Name"
         android:id="@+id/textView_main_name" />
 
@@ -20,13 +31,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Country"
-        android:id="@+id/textView_main_country" />
+        android:text="password"
+        android:id="@+id/textView_main_password" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText_main_country" />
+        android:password="true"
+        android:id="@+id/editText_main_password"/>
 
     <Button
         android:layout_width="match_parent"
