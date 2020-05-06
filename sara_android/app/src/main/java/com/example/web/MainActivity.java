@@ -100,16 +100,21 @@ public class MainActivity extends AppCompatActivity {
             String postParameters = "email=" +email + "name=" + name + "&password=" + password;
 
             try {
+
+                //----------------------------------
+                // URL 설정하고 접속하기
+                //----------------------------------
                 URL url = new URL(serverURL);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
                 httpURLConnection.setReadTimeout(5000);
                 httpURLConnection.setConnectTimeout(5000);
 
-                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setRequestMethod("POST"); //전송 방식은 POST
                 httpURLConnection.connect();
 
                 //여기서 outputStream을 사용한 이유를 파악해야합니다.
+                //스트림을 통해서 파라미터를 전송해야 하기 때문에 URLConnection으로부터 OutputStream을 구해야 한다
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 outputStream.write(postParameters.getBytes("UTF-8"));
                 outputStream.flush();
@@ -127,20 +132,22 @@ public class MainActivity extends AppCompatActivity {
                     inputStream = httpURLConnection.getErrorStream();
                 }
 
-
+                //-----------------
+                //서버에서 전송 받기
+                //----------------
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
                 StringBuilder sb = new StringBuilder();
                 String line = null;
 
-                while((line = bufferedReader.readLine()) != null){
+                while((line = bufferedReader.readLine()) != null){ //서버에서 라인단위로 보내줄 것이므로 라인단위로 읽는다
                     sb.append(line);
                 }
 
                 bufferedReader.close();
 
-                return sb.toString();
+                return sb.toString(); //전송결과 반환
 
             } catch (Exception e) {
                 Log.d(TAG, "InsertData: Error ", e);
