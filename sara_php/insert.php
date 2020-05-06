@@ -11,12 +11,11 @@
 
     if( (($_SERVER['REQUEST_METHOD'] == 'POST') && isset($_POST['submit'])) || $android )
     {
-
         // 안드로이드 코드의 postParameters 변수에 적어준 이름을 가지고 값을 전달 받습니다.
-
         $name=$_POST['name'];
         $country=$_POST['country'];
 
+        //이름 항목과 나라항목중 한곳이 비어 있으면 해당 에러메세지를 출력합니다.
         if(empty($name)){
             $errMSG = "이름을 입력하세요.";
         }
@@ -34,7 +33,7 @@
 
                 if($stmt->execute())
                 {
-                    $successMSG = "새로운 사용자를 추가ggg했습니다.";
+                    $successMSG = "새로운 사용자를 추가했습니다.";
                 }
                 else
                 {
@@ -62,7 +61,6 @@
 ?>
     <html>
        <body>
-
             <form action="<?php $_PHP_SELF ?>" method="POST">
                 Name: <input type = "text" name = "name" />
                 Country: <input type = "text" name = "country" />
