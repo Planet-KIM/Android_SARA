@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorCompanyBlue">
+
+    <!-- It's Title -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:src="@color/colorCompanyGray" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/vsm_logo"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="567dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:id="@+id/relative_ac1"
+            android:onClick="event_connect">
+            <ImageView
+                android:id="@+id/img_ac1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/ac"/>
+
+            <TextView
+                android:id="@+id/txt_air1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/img_ac1"
+                android:layout_toRightOf="@+id/img_ac1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Air Conditioner"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/txt_air2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_ac1"
+                android:layout_below="@id/txt_air1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="에어 컨디셔너"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="center"/>
+        </RelativeLayout>
+
+        <!--2-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:id="@+id/relative_ac2"
+            android:onClick="event_connect">
+
+            <ImageView
+                android:id="@+id/img_hex1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/hex"/>
+
+            <TextView
+                android:id="@+id/txt_hex1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/img_hex1"
+                android:layout_toRightOf="@+id/img_hex1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Heat Exchange"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/txt_hex2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_hex1"
+                android:layout_below="@id/txt_hex1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="열교환기"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="center"/>
+        </RelativeLayout>
+
+        <!-- 3 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:id="@+id/relative_ac3"
+            android:onClick="event_connect">
+            <ImageView
+                android:id="@+id/img_htr1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/htr"/>
+
+            <TextView
+                android:id="@+id/txt_htr1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/img_htr1"
+                android:layout_toRightOf="@+id/img_htr1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="HTR"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/txt_htr2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_htr1"
+                android:layout_below="@id/txt_htr1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="HTR"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="center"/>
+        </RelativeLayout>
+
+        <!-- 4-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:id="@+id/relative_ac4"
+            android:onClick="event_connect">
+            <ImageView
+                android:id="@+id/img_ptc1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="20dp"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/ptc"/>
+
+            <TextView
+                android:id="@+id/txt_ptc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/img_ptc1"
+                android:layout_toRightOf="@+id/img_ptc1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="Positive Temperature Coefficient Heater"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/txt_ptc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_ptc1"
+                android:layout_below="@id/txt_ptc1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:text="PTC"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="center"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="bottom">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:src="@color/colorCompanyGray" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/vsm_logo"/>
+    </FrameLayout>
+
+</LinearLayout>

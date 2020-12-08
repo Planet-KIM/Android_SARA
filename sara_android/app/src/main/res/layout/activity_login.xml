@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorCompanyBlue">
+
+    <!-- It's Title -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:src="@color/colorCompanyGray" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/vsm_logo"/>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp">
+
+        <TextView
+            android:id="@+id/txt_id1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="I     D : "
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="70dp"/>
+
+        <EditText
+            android:id="@+id/edt_id1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/txt_id1"
+            android:layout_toRightOf="@+id/txt_id1"/>
+
+        <TextView
+            android:id="@+id/txt_pwd1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/txt_id1"
+            android:text="PWD : "
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/colorWhite"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="70dp"/>
+
+        <EditText
+            android:id="@+id/edt_pwd1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txt_pwd1"
+            android:layout_below="@+id/edt_id1"/>
+
+        <Button
+            android:id="@+id/btn_signup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_pwd1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="120dp"
+            android:text="SIGN UP"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorCompanyBlue"/>
+
+        <Button
+            android:id="@+id/btn_signin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_pwd1"
+            android:layout_toRightOf="@+id/btn_signup1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="SIGN IN"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorCompanyBlue"
+            android:onClick="event_signin"/>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="250dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:src="@color/colorCompanyGray" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/vsm_logo"/>
+    </FrameLayout>
+
+
+</LinearLayout>

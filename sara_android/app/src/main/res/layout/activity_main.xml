@@ -3,54 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:id="@+id/textview_main_email"/>
-
-    <EditText
+    <WebView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_main_email"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:id="@+id/textView_main_name" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_main_name" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="password"
-        android:id="@+id/textView_main_password" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:password="true"
-        android:id="@+id/editText_main_password"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Insert"
-        android:onClick="submit"
-        android:id="@+id/button_main_insert" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:id="@+id/textView_main_result" />
+        android:layout_height="match_parent"
+        android:id="@+id/webView"/>
 
 </LinearLayout>
 

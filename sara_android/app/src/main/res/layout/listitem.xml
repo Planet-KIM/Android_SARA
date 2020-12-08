@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorCompanyBlue"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/listimage"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ac"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="8dp"/>
+
+    <TextView
+        android:id="@+id/listitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/listimage"
+        android:layout_toRightOf="@+id/listimage"
+        android:textSize="12dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/listgenre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/listitle"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/listimage"
+        android:textColor="@color/colorCompanyGray"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:text=" File Statament : FMU"/>
+
+
+    <Button
+        android:id="@+id/listinput"
+        android:background="@color/colorCompanyBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/listimage"
+        android:layout_below="@id/listgenre"
+        android:text="input"
+        android:textStyle="bold"
+        android:textColor="@color/colorCompanyGray"
+        android:layout_marginTop="5dp"
+        android:textSize="13dip"/>
+
+    <Button
+        android:id="@+id/listoutput"
+        android:background="@color/colorCompanyBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/listgenre"
+        android:layout_toRightOf="@+id/listinput"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="output"
+        android:textStyle="bold"
+        android:textColor="@color/colorCompanyGray"
+        android:textSize="13dip"/>
+
+</RelativeLayout>
