@@ -37,12 +37,12 @@ public interface JsonPlaceHolderApi {
     Call<List<output>> getPost4(@Query(value="planetkey") String planetkey, @Query(value="output")String fmuname);
 
 
+    @POST("/user/login")
     @FormUrlEncoded
-    @POST("user/login")
-    Call<LoginResponse> userLogin(
+    Call<LoginResponse> login(
             @Field("name") String name,
-            @Field("password") String password
-    );
+            @Field("password") String password);
+
 
     /* userId 를 출력하고 정렬 방식을 조정하는 부분
     @GET("posts")

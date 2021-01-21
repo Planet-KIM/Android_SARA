@@ -24,6 +24,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+// Change EditText Value
+
 public class sub_input extends AppCompatActivity {
 
     private final String BASEURL = "https://walkplanetcat.com/";

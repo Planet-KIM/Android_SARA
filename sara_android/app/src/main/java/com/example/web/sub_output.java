@@ -1,4 +1,4 @@
-package com.example.web;
+    package com.example.web;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -75,6 +75,7 @@ public class sub_output extends AppCompatActivity {
                     content += "ID: " + post.getId() + "\n";
                     content += "PARAMETER: " + post.getParameter() + "\n";
                     content += "UNIT: " + post.getUnit() + "\n";
+                    content += "VALUE : " + post.getValue() + "\n";
                     list.add(content);
                 }
 

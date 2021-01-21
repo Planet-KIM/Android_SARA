@@ -1,26 +1,13 @@
 package com.example.web.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class LoginResponse {
 
-    private boolean error;
-    private String message;
+    @SerializedName("body")
     private String name;
+    @SerializedName("body")
     private String password;
-
-    public LoginResponse(Boolean error, String message, String name, String password){
-        this.error = error;
-        this.message = message;
-        this.name = name;
-        this.password = password;
-    }
-
-    public boolean isError() {
-        return error;
-    }
-
-    public String isMessage() {
-        return message;
-    }
 
     public String isname() {
         return name;
